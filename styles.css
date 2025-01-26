@@ -1,0 +1,471 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-image: url("Images/background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* changed to dark transparent */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white; /* changed to white */
+}
+
+.brand-logo {
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1); /* This will make the logo white */
+}
+
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white; /* changed to white */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #cccccc; /* changed to light gray */
+}
+
+.section {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Reset to standard padding */
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+
+#home {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#courses {
+  padding: 100px 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#about {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: relative;
+  overflow: hidden;  /* Keep squares within the section */
+}
+
+#courses .container,
+#about .container {
+  text-align: center;
+}
+
+.courses-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.course-card {
+  background: rgba(0, 0, 0, 0.9); /* changed to dark */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.course-content {
+  padding: 1.5rem;
+}
+
+.course-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.credits {
+  background-color: #333;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.credits.active {
+  background-color: #4caf50; /* Green color */
+}
+
+.credits.expired {
+  background-color: #dc3545; /* Red color */
+}
+
+.rating {
+  color: #ffd700;
+  font-size: 1.1rem;
+}
+
+.course-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: white; /* changed to white */
+  line-height: 1.4;
+}
+
+.course-card p {
+  color: #cccccc; /* changed to light gray */
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: white; /* changed to white */
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white; /* changed to white */
+}
+
+p {
+  color: #cccccc; /* changed to light gray */
+  margin-bottom: 1rem;
+}
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.highlight {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #ff6b00; /* orange color */
+  display: block;
+}
+
+.subtitle-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+}
+
+.subtitle {
+  font-size: 2rem;
+  color: white;
+  margin: 0;
+  white-space: normal;
+  line-height: 1.2;
+}
+
+.learn-more {
+  text-decoration: none;
+  display: inline-block;
+  background: transparent;
+  border: 2px solid #ff6b00;
+  color: #ff6b00;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  align-self: center;
+}
+
+.learn-more:hover {
+  background: #ff6b00;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+    padding: 0 0.5rem;
+  }
+
+  .course-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
+  }
+
+  .nav-brand {
+    margin-bottom: 1rem;
+  }
+
+  .highlight {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .subtitle-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .subtitle {
+    white-space: normal;
+  }
+}
+
+.footer {
+  position: relative;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  margin-bottom: 2rem; /* Reset to standard margin */
+}
+
+.footer-text {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+  transform: scale(1.2);
+}
+
+.about-text {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
+  line-height: 1.6;
+  white-space: pre-line;
+  padding: 0 60px; /* Add padding to prevent text overlap with decorations */
+}
+
+.about-text br {
+  display: none;
+}
+
+.course-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.course-details {
+  padding-top: 120px;
+  min-height: 100vh;
+}
+
+.course-full {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.course-hero-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.course-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem 0 2rem;
+}
+
+.course-description {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .course-hero-image {
+    max-height: 300px;
+  }
+
+  .course-description {
+    padding: 0 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* Add a specific body class for course pages */
+body.course-page {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    linear-gradient(45deg, #ff6b00 0%, #1e90ff 100%);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+}
+
+.price-label {
+  font-size: 1.1rem;
+  color: #cccccc;
+}
+
+.price-amount {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff6b00;
+}
+
+/* Update side decoration styles */
+/* 1. Side decorations */
+/* .side-decoration {
+  /* ... remove entire block ... */
+}
+
+/* 2. Course grid decorations */
+/* .courses-grid::before,
+.courses-grid::after {
+  /* ... remove entire block ... */
+}
+
+/* 3. About text decorations */
+/* .about-text::before,
+.about-text::after {
+  /* ... remove entire block ... */
+}
+
+/* 4. Footer decorations */
+/* .footer::before,
+.footer::after {
+  /* ... remove entire block ... */
+}
+
+/* 5. Remove all related animations */
+/* @keyframes glow-left {
+  /* ... remove entire block ... */
+}
+
+@keyframes glow-right {
+  /* ... remove entire block ... */
+}
+
+@keyframes glow-left-small {
+  /* ... remove entire block ... */
+}
+
+@keyframes glow-right-small {
+  /* ... remove entire block ... */
+}
+
+@keyframes float-rectangles {
+  /* ... remove entire block ... */
+} */

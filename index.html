@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Single Page App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="side-decoration left"></div>
+    <div class="side-decoration right"></div>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="Images/RVS.png" alt="RVS Logo" class="brand-logo" />
+        <span>Reel Vision Studio</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Начало</a></li>
+        <li><a href="#courses">Курсове</a></li>
+        <li><a href="#about">За нас</a></li>
+      </ul>
+    </nav>
+
+    <section id="home" class="section">
+      <div class="container">
+        <div class="welcome-text">
+          <span class="highlight">Здравейте</span>
+          <div class="subtitle-container">
+            <h2 class="subtitle">
+              отворете вратата си към света<br />
+              на видеообработката
+            </h2>
+            <a href="#courses" class="learn-more">Научете повече</a>
+          </div>
+        </div>
+        <p>Преоткрийте един нов свят и развийте себе си</p>
+      </div>
+    </section>
+
+    <section id="courses" class="section">
+      <div class="container">
+        <h2>Нашите Курсове</h2>
+        <div class="courses-grid">
+          <div class="course-card">
+            <a href="courses/adobe-indesign.html" class="course-link">
+              <img
+                src="Images/adobe-indesign.jpg"
+                alt="Adobe InDesign Course"
+              />
+              <div class="course-content">
+                <div class="course-info">
+                  <span class="credits active">Активен</span>
+                  <div class="rating">★★★★★</div>
+                </div>
+                <h3>Курс по Adobe InDesign</h3>
+                <p>Приложение за уеб дизайн и дигитални издания</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="course-card">
+            <a href="courses/interior-design.html" class="course-link">
+              <img
+                src="Images/interior-design.jpg"
+                alt="Interior Design Course"
+              />
+              <div class="course-content">
+                <div class="course-info">
+                  <span class="credits active">Активен</span>
+                  <div class="rating">★★★★★</div>
+                </div>
+                <h3>Гъвкав и адаптивен интериорен дизайн</h3>
+                <p>Пространства без граници: Изкуството на гъвкавия дизайн</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="course-card">
+            <a href="courses/summer-camp.html" class="course-link">
+              <img src="Images/summer-camp.jpg" alt="Summer Camp Course" />
+              <div class="course-content">
+                <div class="course-info">
+                  <span class="credits expired">Изтекъл</span>
+                  <div class="rating">★★★★★</div>
+                </div>
+                <h3>Interior Design Summer Camp 2021</h3>
+                <p>Приключение, което ще ви изкачи на нови висоти</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>За Нас</h2>
+        <p class="about-text">
+          Reel Vision Studio - Ние сме специално разработена платформа, в която
+          учим желаещите да преоткрият артиста в себе си. Нашата цел е да дадем
+          шанс на младите, да покажат творчеството си пред света и да даем старт
+          на тяхната кариера в онлайн средите, чрез добре структурирано онлайн
+          съдържание.
+        </p>
+        <footer class="footer">
+          <p class="footer-text">You can reach me on:</p>
+          <div class="social-icons">
+            <a
+              href="https://www.tiktok.com/foryou"
+              class="social-link"
+              target="_blank"
+            >
+              <img src="Icons/Tiktok.png" alt="TikTok" class="social-icon" />
+            </a>
+            <a
+              href="https://www.facebook.com/"
+              class="social-link"
+              target="_blank"
+            >
+              <img
+                src="Icons/Facebook.png"
+                alt="Facebook"
+                class="social-icon"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/"
+              class="social-link"
+              target="_blank"
+            >
+              <img
+                src="Icons/Instagram.png"
+                alt="Instagram"
+                class="social-icon"
+              />
+            </a>
+            <a href="https://discord.com/" class="social-link" target="_blank">
+              <img src="Icons/Discord.png" alt="Discord" class="social-icon" />
+            </a>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
