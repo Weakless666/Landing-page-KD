@@ -7,7 +7,7 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  background-image: url("Images/background.jpg");
+  background-image: url("Images/background.png");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -342,8 +342,7 @@ p {
 }
 
 .course-details {
-  padding-top: 120px;
-  min-height: 100vh;
+  padding: 2rem 0;
 }
 
 .course-full {
@@ -469,3 +468,115 @@ body.course-page {
 @keyframes float-rectangles {
   /* ... remove entire block ... */
 } */
+
+.video-container {
+  position: relative;
+  width: 100%;
+  margin: 2rem 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.course-info-details {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.status-price {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.course-description h2 {
+  margin-bottom: 1rem;
+}
+
+.video-preview {
+  position: relative;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.preview-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.video-preview:hover .preview-image {
+  filter: brightness(0.7);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.play-icon {
+  color: white;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.video-preview:hover .play-button {
+  background: rgba(255, 107, 0, 0.9);
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.youtube-video {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.video-wrapper.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 84%; /* 560px * 1.5 relative to standard width */
+    height: auto;
+    z-index: 1000;
+}
+
+.video-wrapper.expanded .youtube-video {
+    height: 472.5px; /* 315px * 1.5 */
+}
+
+/* Add a dark overlay when video is expanded */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.overlay.active {
+    display: block;
+}

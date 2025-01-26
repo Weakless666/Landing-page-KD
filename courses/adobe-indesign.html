@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="course-page">
+    <div class="side-decoration left"></div>
+    <div class="side-decoration right"></div>
     <nav class="navbar">
       <div class="nav-brand">
         <img src="../Images/RVS.png" alt="RVS Logo" class="brand-logo" />
@@ -19,31 +21,44 @@
       </ul>
     </nav>
 
-    <section class="section course-details">
+    <section class="course-details">
       <div class="container">
-        <div class="course-full">
-          <img
-            src="../Images/adobe-indesign.jpg"
-            alt="Adobe InDesign Course"
-            class="course-hero-image"
-          />
-          <h1>Курс по Adobe InDesign</h1>
-          <div class="course-status">
+        <h1>Курс по Adobe InDesign</h1>
+        <div class="video-container">
+          <a
+            href="https://www.youtube.com/watch?v=eHnNGpp4Zs8"
+            target="_blank"
+            class="video-preview"
+          >
+            <img
+              src="../Images/KrasenVideo.jpg"
+              alt="Adobe InDesign Course Preview"
+              class="preview-image"
+            />
+            <div class="play-button">
+              <i class="play-icon">▶</i>
+            </div>
+          </a>
+        </div>
+        <div class="course-info-details">
+          <div class="status-price">
             <span class="credits active">Активен</span>
             <div class="rating">★★★★★</div>
-            <div class="price">
-              <span class="price-label">Цена:</span>
-              <span class="price-amount">39,99лв</span>
-            </div>
+            <span class="price">Цена: 39,99лв</span>
           </div>
-          <p class="course-description">
-            Приложение за уеб дизайн и дигитални издания. Подробно разглеждане
-            на всички инструменти и техники за създаване на професионални
-            дигитални публикации. Научете как да създавате списания, брошури,
-            книги и други печатни материали с професионално качество.
-          </p>
+          <div class="course-description">
+            <h2>Описание на курса</h2>
+            <p>
+              Приложение за уеб дизайн и дигитални издания. Подробно разглеждане
+              на всички инструменти и техники за създаване на професионални
+              дигитални публикации. Научете как да създавате списания, брошури,
+              книги и други печатни материали с професионално качество.
+            </p>
+          </div>
         </div>
       </div>
     </section>
+
+    <script src="../script.js"></script>
   </body>
 </html>
