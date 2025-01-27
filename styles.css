@@ -90,7 +90,7 @@ h2 {
 }
 
 .video-container {
-  margin: 1.5rem auto;
+  margin: 1.5rem auto 3rem;
   width: 100%;
   max-width: 1200px;
   border-radius: 10px;
@@ -142,6 +142,9 @@ h2 {
   justify-content: center;
   gap: 2rem;
   align-items: center;
+  flex-wrap: wrap;
+  /* max-width: 300px;
+  margin: 0 auto; */
 }
 
 .social-icon {
@@ -152,6 +155,36 @@ h2 {
 
 .social-link:hover .social-icon {
   transform: scale(1.2);
+}
+
+/* Update social icons layout for mobile */
+@media (max-width: 480px) {
+  .about-text {
+    padding: 0;
+  }
+
+  .social-icons {
+    gap: 1.5rem;
+  }
+
+  .social-link {
+    width: 100%;
+    text-align: center;
+  }
+
+  .social-link:nth-child(1) {
+    width: 100%; /* First icon takes full width */
+  }
+
+  .social-link:nth-child(2),
+  .social-link:nth-child(3) {
+    width: calc(50% - 0.75rem); /* Second row icons take half width minus gap */
+  }
+
+  .social-link:nth-child(4),
+  .social-link:nth-child(5) {
+    width: calc(50% - 0.75rem); /* Third row icons take half width minus gap */
+  }
 }
 
 @media (max-width: 850px) {
@@ -269,7 +302,7 @@ h2 {
 }
 
 #video {
-  padding-top: 0;
+  padding-top: 100px;
   padding-bottom: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -285,4 +318,750 @@ h2 {
 /* Remove the body::after gradient */
 body::after {
   display: none;
+}
+
+.course-sections {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.course-sections h3 {
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: normal;
+}
+
+.course-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.course-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 3.5rem; /* Make space for the tick */
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.course-btn .tick {
+  position: absolute;
+  right: 1.2rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(0, 255, 0, 0.2);
+  border: 1px solid #00ff00;
+  display: none; /* Hidden by default */
+  align-items: center;
+  justify-content: center;
+  color: #00ff00;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.course-btn .tick::before {
+  content: "✓";
+}
+
+.course-btn.visited .tick {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.course-btn:hover {
+  background: white;
+  color: black;
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .course-sections h3 {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .course-buttons {
+    padding: 0 1rem;
+  }
+
+  .course-btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+.course-detail-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.85); */
+  z-index: 1000;
+  display: none;
+  overflow-y: auto;
+  /* backdrop-filter: blur(5px); */
+}
+
+.course-detail-container {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: white;
+  backdrop-filter: blur(40px);
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.back-btn,
+.enroll-btn {
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: white;
+  color: black;
+}
+
+.enroll-btn {
+  background: #ff6b00;
+  border-color: #ff6b00;
+}
+
+.enroll-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
+}
+
+/* Course content grid layout */
+.course-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.video-side,
+.form-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Bonus section styling */
+.bonus-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bonus-item {
+  margin: 1.5rem 0;
+}
+
+.bonus-value {
+  color: #ff6b00;
+  font-weight: bold;
+}
+
+.bonus-description {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+/* Price section */
+.price-section {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.original-price {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.special-price {
+  color: #ff6b00;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.guarantee {
+  text-align: center;
+  font-weight: bold;
+  color: #ff6b00;
+  margin: 1rem 0;
+}
+
+/* Pain points section */
+.pain-points {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pain-points p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .course-content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.video-description {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.video-description p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  line-height: 1.3;
+  margin: 2rem 0;
+  color: #ff6b00;
+  text-align: center;
+}
+
+.eyebrow-text {
+  font-size: 1.8rem;
+  color: white;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .eyebrow-text {
+    font-size: 1.4rem;
+  }
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.eyebrow-text {
+  font-size: 1.8rem;
+  color: white;
+  text-align: center;
+  font-weight: normal;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  position: absolute;
+}
+
+.eyebrow-text.active {
+  opacity: 1;
+  position: relative;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  line-height: 1.4;
+  color: #ff6b00;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.feature-item {
+  font-size: 1.3rem;
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .eyebrow-text {
+    font-size: 1.4rem;
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .feature-item {
+    font-size: 1.1rem;
+  }
+}
+
+.future-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #ff6b00;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  color: white;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.benefits-list,
+.limitations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.benefit-item,
+.limitation-item {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: white;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.closing-text {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: white;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(255, 107, 0, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 107, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .benefit-item,
+  .limitation-item {
+    font-size: 1.1rem;
+  }
+
+  .closing-text {
+    font-size: 1.1rem;
+    padding: 1.5rem;
+  }
+}
+
+.myths-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.myth-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.myth-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.myth-item:hover {
+  transform: translateY(-5px);
+}
+
+.myth {
+  font-size: 1.3rem;
+  color: #ff6b00;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+.truth {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .myth {
+    font-size: 1.1rem;
+  }
+
+  .truth {
+    font-size: 1rem;
+  }
+
+  .myth-item {
+    padding: 1.5rem;
+  }
+}
+
+.modules-section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.modules-subtitle {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.modules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.module-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.module-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.module-title {
+  font-size: 1.4rem;
+  color: #ff6b00;
+  margin-bottom: 1rem;
+}
+
+.module-description {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.module-features {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+.module-features li {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.module-features li::before {
+  content: "•";
+  color: #ff6b00;
+  position: absolute;
+  left: -1.5rem;
+}
+
+@media (max-width: 768px) {
+  .module-title {
+    font-size: 1.2rem;
+  }
+
+  .module-description,
+  .module-features li {
+    font-size: 1rem;
+  }
+
+  .module-item {
+    padding: 1.5rem;
+  }
+}
+
+.resources-section {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.resources-visual {
+  position: relative;
+  min-height: 500px;
+  padding: 2rem;
+}
+
+.resource-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.resource-card.main-course {
+  background: linear-gradient(135deg, #ff6b00 0%, #ff8800 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.resource-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resource-card.bonus {
+  transform: translateX(-20px);
+}
+
+.resource-card.bonus:hover {
+  transform: translateX(0) scale(1.02);
+}
+
+.resource-emoji {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.offer-side {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.offer-title {
+  color: #ff6b00;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resources-visual {
+    min-height: 400px;
+    order: -1;
+  }
+
+  .resource-card.bonus {
+    transform: none;
+  }
+}
+
+.testimonials-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-avatar {
+  font-size: 2.5rem;
+  background: rgba(255, 107, 0, 0.1);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-info h3 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.testimonial-date {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.testimonial-rating {
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.testimonial-text {
+  color: white;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-results {
+  color: #ff6b00;
+  font-weight: bold;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Update the scroll behavior for smoother navigation */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin: 4px 0; /* Increased margin to show rounded ends */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(169, 169, 169, 0.5);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  min-height: 40px; /* Ensure minimum height for thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(169, 169, 169, 0.7);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(169, 169, 169, 0.5) rgba(255, 255, 255, 0.1);
+}
+
+/* Add stronger shadow for headings */
+.section-title,
+.main-title,
+h2 {
+  /* Removed text-shadow */
 }
