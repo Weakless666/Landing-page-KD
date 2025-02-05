@@ -422,22 +422,38 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  /* background: rgba(0, 0, 0, 0.85); */
   z-index: 1000;
-  display: none;
   overflow-y: auto;
-  /* backdrop-filter: blur(5px); */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  /* background: rgba(0, 0, 0, 0.85); */
+  backdrop-filter: blur(5px);
+}
+
+.course-detail-section.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 }
 
 .course-detail-container {
   max-width: 1200px;
   margin: 80px auto;
   padding: 40px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.9);
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   color: white;
-  backdrop-filter: blur(40px);
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.course-detail-section.active .course-detail-container {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .navigation-buttons {
@@ -501,15 +517,16 @@ body::after {
   margin: 1.5rem 0;
 }
 
-.bonus-value {
-  color: #ff6b00;
-  font-weight: bold;
+.bonus-item h3 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .bonus-description {
   font-size: 0.9rem;
   opacity: 0.9;
-  margin-top: 0.5rem;
+  color: #cccccc;
 }
 
 /* Price section */
@@ -543,15 +560,60 @@ body::after {
   text-align: center;
 }
 
-.pain-points p {
+.pain-points h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #ff6b00;
+}
+
+/* Style for bullet point paragraphs */
+.pain-points p:not(:last-child) {
   font-size: 1.2rem;
-  line-height: 1.8;
-  margin: 2rem 0;
+  line-height: 1.4;
+  margin: 1rem 0;
+  color: white;
+  text-align: left;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+/* Custom bullet points */
+.pain-points p:not(:last-child)::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ff6b00;
+  font-weight: bold;
+}
+
+/* Special styling for the last paragraph */
+.pain-points p:last-child {
+  margin-top: 3rem;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: white;
+  padding: 2rem;
+  background: rgba(255, 107, 0, 0.1);
+  border: 1px solid rgba(255, 107, 0, 0.3);
+  border-radius: 15px;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
-  .course-content-grid {
-    grid-template-columns: 1fr;
+  .pain-points h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .pain-points p:not(:last-child) {
+    font-size: 1.1rem;
+    margin: 0.8rem 0;
+  }
+
+  .pain-points p:last-child {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
   }
 }
 
@@ -869,7 +931,7 @@ body::after {
 .resources-visual {
   position: relative;
   min-height: 500px;
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
 }
 
 .resource-card {
@@ -894,12 +956,8 @@ body::after {
   gap: 1rem;
 }
 
-.resource-card.bonus {
-  transform: translateX(-20px);
-}
-
 .resource-card.bonus:hover {
-  transform: translateX(0) scale(1.02);
+  transform: translateX(20px) scale(1.02);
 }
 
 .resource-emoji {
@@ -1059,9 +1117,61 @@ html {
   scrollbar-color: rgba(169, 169, 169, 0.5) rgba(255, 255, 255, 0.1);
 }
 
-/* Add stronger shadow for headings */
-.section-title,
-.main-title,
-h2 {
-  /* Removed text-shadow */
+/* Responsive styles for courseSection2 */
+@media (max-width: 768px) {
+  .course-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .video-side {
+    order: -1; /* Makes video appear first on mobile */
+  }
+
+  .course-video-container {
+    margin: 0 -20px; /* Extend video edge to edge */
+  }
+
+  .video-description {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+
+  .bonus-section {
+    padding: 1.5rem;
+  }
+
+  .bonus-item {
+    margin: 1rem 0;
+  }
+
+  .bonus-item h3 {
+    font-size: 1.1rem;
+  }
+
+  .bonus-description {
+    font-size: 0.9rem;
+  }
+
+  /* Adjust container padding for mobile */
+  .course-detail-container {
+    padding: 20px;
+    margin: 60px auto;
+  }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 480px) {
+  .course-detail-container {
+    padding: 15px;
+    margin: 40px auto;
+  }
+
+  .bonus-section {
+    padding: 1rem;
+  }
+
+  .video-description {
+    font-size: 1rem;
+  }
 }

@@ -32,7 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
 function showSection(sectionNumber) {
   const section = document.getElementById(`courseSection${sectionNumber}`);
   if (section) {
-    section.style.display = "block";
+    // Remove display:none if it exists
+    section.style.removeProperty("display");
+    // Trigger reflow
+    section.offsetHeight;
+    section.classList.add("active");
     document.body.style.overflow = "hidden";
 
     // Disable navigation links
@@ -51,10 +55,12 @@ function showSection(sectionNumber) {
 }
 
 function hideSection() {
-  const sections = document.querySelectorAll(".course-detail-section");
+  const sections = document.querySelectorAll(".course-detail-section.active");
   sections.forEach((section) => {
-    section.style.display = "none";
+    section.classList.remove("active");
+    // No need to set display:none since we're using visibility
   });
+
   document.body.style.overflow = "auto";
 
   // Re-enable navigation links
@@ -64,3 +70,10 @@ function hideSection() {
     link.style.opacity = "1";
   });
 }
+
+// Add event listener for ESC key
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    hideSection();
+  }
+});
