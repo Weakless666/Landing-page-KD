@@ -66,10 +66,9 @@ body {
 .section {
   position: relative;
   z-index: 2;
-  min-height: 100vh;
   padding: 80px 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   background: rgba(0, 0, 0, 0.85);
 }
@@ -112,22 +111,33 @@ h2 {
 
 .about-text {
   position: relative;
-  max-width: 800px;
-  margin: 0 auto;
   text-align: justify;
   line-height: 1.6;
   white-space: pre-line;
   padding: 0 60px;
   color: #cccccc;
+  margin-bottom: 2rem;
+}
+
+.footer-section {
+  position: relative;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 40px 20px;
+  z-index: 1;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .footer {
-  position: relative;
   background-color: white;
   padding: 2rem;
   border-radius: 10px;
-  margin-top: 1rem;
-  margin-bottom: 0;
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 .footer-text {
@@ -161,6 +171,10 @@ h2 {
 @media (max-width: 480px) {
   .about-text {
     padding: 0;
+  }
+  
+  .footer-section {
+    padding: 20px;
   }
 
   .social-icons {
@@ -305,7 +319,7 @@ h2 {
 
 #video {
   padding-top: 100px;
-  padding-bottom: 0;
+  padding-bottom: 80px;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -314,7 +328,6 @@ h2 {
   position: relative;
   padding-top: 0;
   margin-top: 0;
-  min-height: 100vh;
 }
 
 /* Remove the body::after gradient */
@@ -633,9 +646,9 @@ body::after {
 }
 
 .main-title {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   line-height: 1.3;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   color: #ff6b00;
   text-align: center;
 }
@@ -663,6 +676,9 @@ body::after {
   flex-direction: column;
   gap: 2rem;
   margin-bottom: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 40px;
 }
 
 .eyebrow-options {
@@ -687,11 +703,11 @@ body::after {
 }
 
 .main-title {
-  font-size: 2.5rem;
-  line-height: 1.4;
+  font-size: 2.2rem;
+  line-height: 1.3;
   color: #ff6b00;
   text-align: center;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 }
 
 .features {
@@ -703,9 +719,10 @@ body::after {
 }
 
 .feature-item {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: white;
   text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -1318,5 +1335,311 @@ html {
 
   .title {
     font-size: 2rem;
+  }
+}
+
+/* Add these new styles for course pages */
+.course-page {
+  padding-top: 80px; /* Account for fixed navbar */
+}
+
+.course-details {
+  min-height: calc(100vh - 80px);
+  background: rgba(0, 0, 0, 0.85);
+  padding: 40px 20px;
+}
+
+.course-full {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.course-hero-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.course-status {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.credits {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.credits.active {
+  background: rgba(0, 255, 0, 0.2);
+  color: #00ff00;
+  border: 1px solid #00ff00;
+}
+
+.credits.expired {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff0000;
+  border: 1px solid #ff0000;
+}
+
+.rating {
+  color: #ffd700;
+}
+
+.price {
+  color: #ff6b00;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.course-description {
+  color: white;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
+.video-preview {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.preview-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 107, 0, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.play-icon {
+  color: white;
+  font-size: 2rem;
+}
+
+.video-preview:hover .preview-image {
+  transform: scale(1.05);
+}
+
+.video-preview:hover .play-button {
+  background: #ff6b00;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .course-full {
+    padding: 1rem;
+  }
+  
+  .course-hero-image,
+  .preview-image {
+    height: 250px;
+  }
+  
+  .play-button {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .play-icon {
+    font-size: 1.5rem;
+  }
+}
+
+/* Add these new styles */
+#course-content {
+  min-height: auto;
+  padding: 60px 20px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  height: 800px; /* Increased height to fit content */
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  padding: 40px 40px 60px;
+  overflow-y: auto; /* Change from hidden to auto */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Customize scrollbar for Webkit browsers */
+.slide::-webkit-scrollbar {
+  width: 6px;
+}
+
+.slide::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.slide::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.slide::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Ensure the navigation stays fixed */
+.slider-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 2;
+}
+
+/* Add padding to content to prevent overlap with navigation */
+.section-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 60px; /* Increased to account for navigation */
+}
+
+/* Adjust text sizes to be more compact */
+.main-title {
+  font-size: 2.2rem;
+  line-height: 1.3;
+  margin: 1.5rem 0;
+}
+
+.feature-item {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Media query adjustments */
+@media (max-width: 768px) {
+  .slider-container {
+    height: 700px;
+  }
+  
+  .main-title {
+    font-size: 1.8rem;
+  }
+  
+  .feature-item {
+    font-size: 1.1rem;
+  }
+}
+
+/* Navigation dots */
+.slider-nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  border: none;
+}
+
+.slider-dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+/* Navigation arrows */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.slider-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.slider-arrow.prev {
+  left: 20px;
+}
+
+.slider-arrow.next {
+  right: 20px;
+}
+
+/* Media query adjustments */
+@media (max-width: 768px) {
+  .slider-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .slider-dot {
+    width: 10px;
+    height: 10px;
   }
 }

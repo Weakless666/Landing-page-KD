@@ -77,3 +77,49 @@ document.addEventListener("keydown", (event) => {
     hideSection();
   }
 });
+
+// Add this new slider code
+document.addEventListener('DOMContentLoaded', function() {
+  const sliderTrack = document.querySelector('.slider-track');
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.slider-dot');
+  const prevButton = document.querySelector('.slider-arrow.prev');
+  const nextButton = document.querySelector('.slider-arrow.next');
+  
+  let currentSlide = 0;
+  
+  function updateSlider() {
+    sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentSlide);
+    });
+    
+    prevButton.style.opacity = currentSlide === 0 ? '0.5' : '1';
+    nextButton.style.opacity = currentSlide === slides.length - 1 ? '0.5' : '1';
+  }
+  
+  prevButton.addEventListener('click', () => {
+    if (currentSlide > 0) {
+      currentSlide--;
+      updateSlider();
+    }
+  });
+  
+  nextButton.addEventListener('click', () => {
+    if (currentSlide < slides.length - 1) {
+      currentSlide++;
+      updateSlider();
+    }
+  });
+  
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentSlide = index;
+      updateSlider();
+    });
+  });
+  
+  // Initialize slider
+  updateSlider();
+});
