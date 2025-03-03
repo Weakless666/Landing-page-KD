@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modern Single Page App</title>
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="side-decoration left"></div>
@@ -12,13 +13,24 @@
     <nav class="navbar">
       <div class="nav-brand">
         <img src="Images/RVS.png" alt="RVS Logo" class="brand-logo" />
-        <span>Reel Vision Studio</span>
       </div>
-      <ul class="nav-links">
-        <li><a href="#home">Начало</a></li>
-        <li><a href="#video">Курс</a></li>
-        <li><a href="#course-content">За нас</a></li>
-      </ul>
+      
+      <button class="burger-menu" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#home">Начало</a></li>
+          <li><a href="#video">Курс</a></li>
+          <li><a href="#course-content">За нас</a></li>
+        </ul>
+        <a href="https://whop.com/viral-video-social-media/" class="nav-cta" target="_blank">
+          ЗАПИШИ СЕ СЕГА
+        </a>
+      </div>
     </nav>
 
     <section id="home" class="section">
@@ -28,8 +40,7 @@
             <span class="highlight">Здравейте</span>
             <div class="subtitle-container">
               <h2 class="subtitle">
-                отворете вратата си към света<br />
-                на видеообработката
+                Отвори съзнанието си към света на <br/> видео обработката
               </h2>
               <p class="welcome-text-paragraph">
                 Преоткрийте един нов свят и развийте себе си
@@ -56,6 +67,11 @@
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
           ></iframe>
+        </div>
+        <div class="signup-container">
+          <a href="https://whop.com/viral-video-social-media/" class="signup-button" target="_blank">
+            ЗАПИШИ СЕ СЕГА
+          </a>
         </div>
       </div>
     </section>
@@ -91,10 +107,11 @@
               <div class="course-content-grid">
                 <div class="video-side">
                   <div class="course-video-container">
-                    <iframe
-                      class="youtube-video"
-                      src="your-personal-story-video-url"
-                    ></iframe>
+                    <img 
+                      src="Images/Live_Editing.png" 
+                      alt="Live video editing demonstration in Premiere Pro" 
+                      class="course-preview-image"
+                    />
                   </div>
                   <div class="video-description">
                     <p>
@@ -604,54 +621,10 @@
 
             <!-- Slide 8 -->
             <div class="slide">
-              <div class="section-content testimonials-section">
+              <div class="testimonials-section">
                 <h2 class="section-title">Какво казват нашите студенти</h2>
-
-                <div class="testimonials-grid">
-                  <div class="testimonial-card">
-                    <div class="testimonial-header">
-                      <div class="testimonial-avatar">👨‍💻</div>
-                      <div class="testimonial-info">
-                        <h3>Александър Петров</h3>
-                        <p class="testimonial-date">Завършил курса преди 2 месеца</p>
-                      </div>
-                    </div>
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">
-                      "Преди да започна този курс, прекарвах часове в опити да създам
-                      качествено видео съдържание. Методът 4К напълно промени начина,
-                      по който подхождам към видеообработката. Само за първия месец
-                      след завършване успях да спечеля 3 клиента и да започна да
-                      изкарвам пари от това. Най-ценното е подкрепата от общността и
-                      личните съвети, които получих. Сега мога да създавам
-                      професионални видеа за по-малко от час!"
-                    </p>
-                    <p class="testimonial-results">
-                      💰 От хоби до доходи: 2000+ лв. месечно
-                    </p>
-                  </div>
-
-                  <div class="testimonial-card">
-                    <div class="testimonial-header">
-                      <div class="testimonial-avatar">👩‍💻</div>
-                      <div class="testimonial-info">
-                        <h3>Мария Димитрова</h3>
-                        <p class="testimonial-date">Завършила курса преди 3 месеца</p>
-                      </div>
-                    </div>
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">
-                      "Никога не съм предполагала, че мога да науча толкова много за
-                      толкова кратко време. Присетите и техниките, които научих, ми
-                      спестяват часове работа. Успях да напусна старата си работа и
-                      сега се занимавам само с видеообработка. Най-хубавото е, че мога
-                      да работя от вкъщи и да прекарвам повече време със семейството
-                      си."
-                    </p>
-                    <p class="testimonial-results">
-                      🎯 Вече работи като freelance видео редактор
-                    </p>
-                  </div>
+                <div class="testimonials-container" id="testimonials-container">
+                  <!-- Reviews will be dynamically inserted here -->
                 </div>
               </div>
             </div>
@@ -735,6 +708,9 @@
       </div>
     </footer>
 
+    <!-- Update the script sources just before the closing body tag -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
