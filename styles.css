@@ -18,13 +18,15 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   z-index: 1001;
+  transition: top 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .nav-brand {
@@ -1110,14 +1112,19 @@ body::after {
 
 .testimonial-header {
   display: flex;
+  align-items: center;
+  justify-content: center; 
   gap: 12px;
   margin-bottom: 12px;
+  position: relative;
 }
 
 .testimonial-avatar {
-  width: 32px;
-  height: 32px;
-  min-width: 32px;
+  position: absolute;
+  width: 40px;
+  left: 0;
+  height: 40px;
+  min-width: 40px;
   background: #2a2a2a;
   border-radius: 50%;
   display: flex;
