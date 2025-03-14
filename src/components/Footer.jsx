@@ -55,7 +55,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/Icons/Discord.png" alt="Discord" className="social-icon" />
+              <img src="/src/assets/Icons/discord.png" alt="Discord" className="social-icon" />
             </a>
           </div>
         </div>
