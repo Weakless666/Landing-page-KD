@@ -7,7 +7,10 @@
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.6;
-  background-color: rgb(10, 10, 10);
+  background: linear-gradient(135deg, #1a472a 0%, #0a3d62 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -22,7 +25,8 @@ body {
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   z-index: 1001;
-  transition: top 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease;
+  transition: top 0.3s ease, background-color 0.3s ease,
+    backdrop-filter 0.3s ease;
 }
 
 .nav-brand {
@@ -165,7 +169,7 @@ h2 {
 }
 
 .footer-content p {
-text-align: center;
+  text-align: center;
 }
 
 .footer {
@@ -208,7 +212,7 @@ text-align: center;
   .about-text {
     padding: 0;
   }
-  
+
   .footer-section {
     padding: 30px 0;
   }
@@ -1106,7 +1110,7 @@ body::after {
 .testimonial-header {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   gap: 12px;
   margin-bottom: 12px;
   position: relative;
@@ -1190,7 +1194,7 @@ body::after {
     grid-template-columns: 1fr;
     max-width: 600px;
   }
-  
+
   .testimonials-section .section-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
@@ -1408,7 +1412,8 @@ html {
   opacity: 0.8;
 }
 
-.content-right, .kraskata-image {
+.content-right,
+.kraskata-image {
   display: none;
 }
 
@@ -1566,17 +1571,17 @@ html {
   .course-full {
     padding: 1rem;
   }
-  
+
   .course-hero-image,
   .preview-image {
     height: 250px;
   }
-  
+
   .play-button {
     width: 60px;
     height: 60px;
   }
-  
+
   .play-icon {
     font-size: 1.5rem;
   }
@@ -1780,7 +1785,7 @@ html {
     height: 40px;
     font-size: 1.2rem;
   }
-  
+
   .slider-dot {
     width: 10px;
     height: 10px;
@@ -1789,7 +1794,6 @@ html {
 
 /* Add responsive adjustments */
 @media (max-width: 768px) {
-  
   #home .container {
     margin: 0; /* Remove container margin */
     padding: 20px; /* Add padding only for content */
@@ -1896,7 +1900,8 @@ html {
 }
 
 /* Add/update these styles to prevent horizontal scrolling */
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -1946,14 +1951,17 @@ html, body {
   .container {
     padding: 0 15px;
   }
-  
+
   .slide {
     padding: 20px 20px 50px;
   }
 }
 
 /* Add shadows to main headings */
-h1, h2, h3, .section-title {
+h1,
+h2,
+h3,
+.section-title {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -1992,7 +2000,12 @@ h1, h2, h3, .section-title {
 }
 
 /* Update heading fonts */
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .nav-brand,
 .highlight,
 .main-title,
@@ -2098,7 +2111,7 @@ h1, h2, h3, h4, h5, h6,
   transition: all 0.3s ease;
 }
 
-.course-video-container img{
+.course-video-container img {
   width: 100%;
 }
 
@@ -2216,10 +2229,42 @@ h1, h2, h3, h4, h5, h6,
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.5)
-  );
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
   z-index: 1;
 }
 
+/* Stars container */
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Individual star */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: twinkle var(--duration) ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(var(--moveY)) translateX(var(--moveX));
+  }
+}
