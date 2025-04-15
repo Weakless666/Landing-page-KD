@@ -1,0 +1,117 @@
+.footer-section {
+  padding: 4rem 2rem;
+  color: white;
+  text-align: center;
+  position: relative;
+  border: none;
+  outline: none;
+}
+
+.footer-section:hover {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.footer-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.mission-section {
+  margin: 2rem 0;
+}
+
+.mission-list {
+  margin-top: 1rem;
+}
+
+.mission-list p {
+  margin: 0.5rem 0;
+}
+
+.promise-section {
+  margin: 2rem 0;
+}
+
+.social-section {
+  margin-top: 2rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+.social-icons a:hover img {
+  transform: translateY(-5px);
+  opacity: 1;
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+}
+
+.social-icons a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 255, 157, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: rgba(0, 255, 157, 0.2);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 3rem 1rem;
+  }
+
+  .footer-content h2 {
+    font-size: 2rem;
+  }
+
+  .footer-content p {
+    font-size: 1rem;
+  }
+
+  .social-icons {
+    gap: 0.75rem;
+  }
+
+  .social-icons a {
+    width: 45px;
+    height: 45px;
+  }
+
+  .social-icons img {
+    width: 25px;
+    height: 25px;
+  }
+} 

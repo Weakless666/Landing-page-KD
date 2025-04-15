@@ -1,0 +1,40 @@
+.language-toggle {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.language-toggle-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+}
+
+.language-option {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.language-option.active {
+  opacity: 1;
+}
+
+.language-separator {
+  opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+  .language-toggle {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+} 

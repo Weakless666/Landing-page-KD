@@ -1,0 +1,125 @@
+.about-us-section {
+  padding: 4rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.about-us-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.about-us-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.about-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.mission-section {
+  margin: 3rem 0;
+}
+
+.mission-section h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.mission-list {
+  list-style: none;
+  padding: 0;
+}
+
+.mission-list li {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.mission-list li::before {
+  content: "•";
+  color: #0fffbe;
+  position: absolute;
+  left: 0;
+  text-shadow: 0 0 10px rgba(15, 255, 190, 0.5);
+}
+
+.promise-section {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.promise-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-section {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.primary-button {
+  background: #0fffbe;
+  color: #0f1624;
+  border: none;
+}
+
+.secondary-button {
+  background: transparent;
+  color: #0fffbe;
+  border: 2px solid #0fffbe;
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .about-us-section h2 {
+    font-size: 2rem;
+  }
+
+  .about-description {
+    font-size: 1.1rem;
+  }
+
+  .mission-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .cta-section {
+    flex-direction: column;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+} 

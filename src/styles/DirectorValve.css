@@ -1,0 +1,793 @@
+.director-valve {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  z-index: 1000;
+  overflow: hidden;
+  perspective: 1000px;
+  animation: valveOpen 1.5s ease-out;
+}
+
+.studio-lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.light-beam {
+  position: absolute;
+  width: 100px;
+  height: 100vh;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
+  transform-origin: top;
+  animation: moveLight 8s infinite;
+}
+
+.light-beam:nth-child(1) { left: 10%; animation-delay: 0s; }
+.light-beam:nth-child(2) { left: 30%; animation-delay: -1s; }
+.light-beam:nth-child(3) { left: 50%; animation-delay: -2s; }
+.light-beam:nth-child(4) { left: 70%; animation-delay: -3s; }
+.light-beam:nth-child(5) { left: 90%; animation-delay: -4s; }
+
+.studio-name {
+  position: absolute;
+  top: 8%;
+  width: 100%;
+  text-align: center;
+}
+
+.studio-name h1 {
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  font-family: 'Arial Black', sans-serif;
+  letter-spacing: 2px;
+  animation: glow 2s infinite alternate;
+}
+
+.clapperboard {
+  width: 700px;
+  height: 525px;
+  background: #1a1a1a;
+  border-radius: 15px;
+  position: relative;
+  transform-origin: top center;
+  animation: fadeIn 0.5s ease-in-out;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.clapper-top {
+  width: 100%;
+  height: 130px;
+  background: #1a1a1a;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  transform-origin: top;
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.clapper-bar {
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+.clapper-bar.black {
+  background: #000;
+}
+
+.clapper-bar.white {
+  background: #fff;
+}
+
+.clapper-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 70%);
+}
+
+.clapper-bottom {
+  width: 100%;
+  height: 395px;
+  background: #1a1a1a;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0 15px 15px;
+  border: 3px solid #fff;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+.clapper-content {
+  padding: 30px;
+  color: white;
+}
+
+.clapper-text {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 40px;
+}
+
+.clapper-left div, .clapper-right div, .clapper-center div, .clapper-far-right div {
+  margin: 15px 0;
+  font-size: 1.4rem;
+  color: white;
+  text-shadow: 0 0 5px rgba(255,255,255,0.3);
+}
+
+.continue-button {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.4rem;
+  background: transparent;
+  border: 3px solid white;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  letter-spacing: 2px;
+  margin-top: 30px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.continue-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.5s ease;
+}
+
+.continue-button:hover::before {
+  left: 100%;
+}
+
+.continue-button:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.director-valve.closing {
+  animation: valveClose 2.5s ease-in-out forwards;
+}
+
+.director-valve.closing .clapper-top {
+  animation: clapTop 2.5s ease-in-out forwards;
+}
+
+.director-valve.closing .clapper-bottom {
+  animation: fadeOut 0.8s ease-in-out 1.7s forwards;
+}
+
+.director-valve.closing .studio-setup,
+.director-valve.closing .studio-name {
+  animation: studioFadeOut 1s ease-in-out 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) rotateX(20deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+
+}
+
+@keyframes clapTop {
+  0% {
+    transform: rotateX(0);
+  }
+  20% {
+    transform: rotateX(-120deg);
+  }
+  25% {
+    transform: rotateX(-100deg);
+  }
+  30% {
+    transform: rotateX(-120deg);
+  }
+  35% {
+    transform: rotateX(-110deg);
+  }
+  100% {
+    transform: rotateX(-120deg);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1) rotateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9) rotateX(-20deg);
+  }
+}
+
+@keyframes moveLight {
+  0% {
+    transform: rotate(-30deg) translateY(-10%);
+    opacity: 0.3;
+  }
+  50% {
+    transform: rotate(30deg) translateY(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: rotate(-30deg) translateY(-10%);
+    opacity: 0.3;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255,255,255,0.8),
+                 0 0 30px rgba(255,255,255,0.6),
+                 0 0 40px rgba(255,255,255,0.4);
+  }
+}
+
+.studio-setup {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+/* Ceiling Grid */
+.ceiling-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 20px;
+  padding: 20px;
+  transform: rotateX(60deg);
+}
+
+.grid-beam {
+  height: 100%;
+  background: linear-gradient(90deg, #2a2a2a, #3a3a3a);
+  border: 1px solid #444;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Overhead Lights */
+.overhead-lights {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10%;
+}
+
+.overhead-light {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8), transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  animation: flicker 5s infinite;
+}
+
+/* Green Screen */
+.green-screen-wall {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 80%;
+  background: #1a1a1a;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.green-screen {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: #00b140;
+  border-radius: 3px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Floor Standing Lights */
+.floor-lights {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floor-light {
+  position: absolute;
+  bottom: 10%;
+  width: 100px;
+  height: 300px;
+}
+
+.floor-light.left {
+  left: 15%;
+  transform: rotate(-15deg);
+}
+
+.floor-light.right {
+  right: 15%;
+  transform: rotate(15deg);
+}
+
+.light-head {
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 80px;
+  background: #333;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.light-stand {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(90deg, #2a2a2a, #3a3a3a);
+}
+
+.light-base {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 20px;
+  background: #222;
+  border-radius: 5px;
+}
+
+/* Studio Chair */
+.studio-chair {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 120px;
+}
+
+.chair-back {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 60%;
+  background: #222;
+  border-radius: 5px;
+}
+
+.chair-seat {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  background: #1a1a1a;
+  border-radius: 3px;
+}
+
+/* Floor Reflection */
+.floor-reflection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), transparent);
+  pointer-events: none;
+}
+
+/* Studio Desk - Split into Two */
+.studio-desk {
+  position: absolute;
+  left: 15%;
+  bottom: 25%;
+  width: 300px;
+  height: 180px;
+  transform: perspective(1000px) rotateX(45deg) rotateZ(15deg);
+  z-index: 2;
+}
+
+/* Second Desk */
+.studio-desk::after {
+  content: '';
+  position: absolute;
+  right: -800px;
+  width: 300px;
+  height: 180px;
+  background: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transform: rotateZ(-30deg);
+}
+
+.desk-surface {
+  width: 100%;
+  height: 100%;
+  background: #2a2a2a;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.desk-items {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  transform: rotateX(-45deg);
+}
+
+/* Laptop on Desk */
+.laptop {
+  position: absolute;
+  left: 50px;
+  top: 30px;
+  transform: rotate(15deg);
+}
+
+.laptop-screen {
+  width: 180px;
+  height: 120px;
+  background: #1a1a1a;
+  border: 5px solid #333;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+}
+
+.laptop-screen::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background: linear-gradient(45deg, #2a2a2a, #333);
+  opacity: 0.8;
+}
+
+.laptop-keyboard {
+  width: 190px;
+  height: 15px;
+  background: #333;
+  border-radius: 0 0 5px 5px;
+}
+
+/* TV Monitors - Two Sides */
+.tv-monitor {
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  transform: rotate(-10deg);
+  z-index: 2;
+}
+
+/* Second TV */
+.tv-monitor::after {
+  content: '';
+  position: absolute;
+  right: -1000px;
+  width: 300px;
+  height: 180px;
+  background: #000;
+  border: 10px solid #333;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  transform: rotate(20deg);
+}
+
+.tv-screen {
+  width: 300px;
+  height: 180px;
+  background: #000;
+  border: 10px solid #333;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.tv-stand {
+  width: 80px;
+  height: 100px;
+  background: #333;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+/* Main Camera Setup - Centered */
+.main-camera {
+  position: absolute;
+  left: 50%;
+  bottom: 35%;
+  transform: translateX(-50%) rotate(0deg);
+  z-index: 3;
+}
+
+.camera-body {
+  width: 180px;
+  height: 120px;
+  background: #1a1a1a;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.camera-lens {
+  width: 100px;
+  height: 100px;
+  background: #000;
+  border: 8px solid #333;
+  border-radius: 50%;
+  position: absolute;
+  left: -50px;
+  top: 10px;
+}
+
+.camera-monitor {
+  width: 120px;
+  height: 80px;
+  background: #333;
+  position: absolute;
+  right: -60px;
+  top: 20px;
+  border-radius: 5px;
+  transform: rotate(15deg);
+}
+
+.camera-tripod {
+  width: 30px;
+  height: 250px;
+  background: linear-gradient(90deg, #333, #444);
+  position: absolute;
+  bottom: -250px;
+  left: 75px;
+}
+
+/* Microphones - Two Sides */
+.microphone {
+  position: absolute;
+  left: 25%;
+  top: 40%;
+  transform: rotate(-15deg);
+  z-index: 2;
+}
+
+/* Second Microphone */
+.microphone::after {
+  content: '';
+  position: absolute;
+  right: -800px;
+  width: 30px;
+  height: 50px;
+  background: #666;
+  border-radius: 5px;
+  transform: rotate(30deg);
+}
+
+.mic-arm {
+  width: 120px;
+  height: 8px;
+  background: #444;
+  position: absolute;
+  top: 0;
+  transform-origin: right;
+  transform: rotate(-45deg);
+}
+
+.mic-head {
+  width: 30px;
+  height: 50px;
+  background: #666;
+  border-radius: 5px;
+  position: absolute;
+  left: -15px;
+  top: 30px;
+}
+
+.mic-stand {
+  width: 15px;
+  height: 100px;
+  background: #444;
+  position: absolute;
+  bottom: -100px;
+  right: 0;
+}
+
+/* Audio Equipment */
+.audio-mixer {
+  position: absolute;
+  right: 20%;
+  bottom: 25%;
+  width: 200px;
+  height: 100px;
+  background: #333;
+  border-radius: 5px;
+  transform: rotate(-10deg);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+/* Studio Lights - Symmetrical Setup */
+.studio-lights-setup {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.light-stand {
+  position: absolute;
+  bottom: 10%;
+}
+
+.light-stand.main-left {
+  left: 15%;
+  transform: rotate(-25deg);
+}
+
+.light-stand.main-right {
+  right: 15%;
+  transform: rotate(25deg);
+}
+
+.light-stand.fill {
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+}
+
+/* Enhanced Cable Management */
+.cable-management {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  z-index: 1;
+}
+
+.cable {
+  position: absolute;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  transform-origin: left;
+  opacity: 0.6;
+}
+
+.cable:nth-child(1) { width: 40%; left: 10%; transform: rotate(3deg); }
+.cable:nth-child(2) { width: 35%; left: 30%; transform: rotate(-2deg); }
+.cable:nth-child(3) { width: 45%; left: 50%; transform: rotate(4deg); }
+.cable:nth-child(4) { width: 30%; left: 75%; transform: rotate(-3deg); }
+
+/* Floor Marks - Symmetrical Pattern */
+.floor-marks {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 40px;
+  z-index: 1;
+}
+
+.floor-mark {
+  position: absolute;
+  width: 40px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.floor-mark:nth-child(1) { left: 10%; }
+.floor-mark:nth-child(2) { left: 30%; }
+.floor-mark:nth-child(3) { left: 50%; transform: translateX(-50%); }
+.floor-mark:nth-child(4) { right: 30%; }
+.floor-mark:nth-child(5) { right: 10%; }
+.floor-mark:nth-child(6) { left: 50%; transform: translateX(-50%) translateY(-20px); }
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+  75% { opacity: 0.9; }
+}
+
+@keyframes valveOpen {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) rotateX(-90deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2) rotateX(-45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateX(0);
+  }
+}
+
+@keyframes valveClose {
+  0% {
+    transform: scale(1) rotateX(0);
+    filter: brightness(1);
+  }
+  40% {
+    transform: scale(1.1) rotateX(10deg);
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: scale(0) rotateX(90deg);
+    filter: brightness(0);
+  }
+}
+
+@keyframes studioFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+.language-toggle-container {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1001;
+  animation: fadeIn 0.5s ease-in-out;
+} 

@@ -1,0 +1,377 @@
+.course-content {
+  width: 100%;
+  background-color: transparent;
+  padding: 4rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.content-section {
+  margin-bottom: 6rem;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 1rem;
+  padding: 3rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.section-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Eyebrow and Main Content */
+.eyebrow-options {
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow-text {
+  color: #0fffbe;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.875rem;
+}
+
+.main-content h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: #ffffff;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-item {
+  background: rgba(15, 255, 190, 0.1);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(15, 255, 190, 0.2);
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  background: rgba(15, 255, 190, 0.15);
+  border-color: rgba(15, 255, 190, 0.3);
+}
+
+/* Bonuses */
+.bonuses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.bonus-item {
+  background: rgba(15, 255, 190, 0.1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(15, 255, 190, 0.2);
+}
+
+.bonus-item:hover {
+  transform: translateY(-5px);
+  background: rgba(15, 255, 190, 0.15);
+  border-color: rgba(15, 255, 190, 0.3);
+}
+
+.bonus-item h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.bonus-item p {
+  color: #ffffff;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Modules */
+.modules {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.module {
+  background: rgba(15, 255, 190, 0.1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(15, 255, 190, 0.2);
+}
+
+.module:hover {
+  transform: translateY(-5px);
+  background: rgba(15, 255, 190, 0.15);
+  border-color: rgba(15, 255, 190, 0.3);
+}
+
+.module h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.module p {
+  color: #ffffff;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+/* Myths */
+.myths {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.myth {
+  background: rgba(15, 255, 190, 0.1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(15, 255, 190, 0.2);
+}
+
+.myth:hover {
+  transform: translateY(-5px);
+  background: rgba(15, 255, 190, 0.15);
+  border-color: rgba(15, 255, 190, 0.3);
+}
+
+.myth h4 {
+  color: #0fffbe;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.myth p {
+  color: #ffffff;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Resources */
+.resources {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.main-resource {
+  background: rgba(15, 255, 190, 0.1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(15, 255, 190, 0.2);
+}
+
+.main-resource h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.resource {
+  background: rgba(15, 255, 190, 0.1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  border: 1px solid rgba(15, 255, 190, 0.2);
+}
+
+.resource:hover {
+  transform: translateY(-5px);
+  background: rgba(15, 255, 190, 0.15);
+  border-color: rgba(15, 255, 190, 0.3);
+}
+
+.emoji {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.resource h4 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+/* Special Offer */
+.offer {
+  background: rgba(15, 255, 190, 0.1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  border: 1px solid rgba(15, 255, 190, 0.2);
+}
+
+.original-price {
+  color: #ffffff;
+  text-decoration: line-through;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+.special-price {
+  color: #0fffbe;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.guarantee {
+  margin-bottom: 2rem;
+}
+
+.guarantee p:first-child {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.offer-features {
+  margin-bottom: 2rem;
+}
+
+.offer-features p {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.start-button {
+  background: #0fffbe;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+  background: #0fffbe;
+}
+
+/* Testimonials */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial {
+  background: rgba(15, 255, 190, 0.1);
+  border: 1px solid rgba(15, 255, 190, 0.2);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial h3 {
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.date, .purchase-time {
+  color: #4a4a4a;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.text {
+  color: #fafafa;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Benefits and Limitations */
+.benefits, .limitations {
+  background: rgba(15, 255, 190, 0.1);
+  border: 1px solid rgba(15, 255, 190, 0.2);
+  padding: 2rem;
+  font-size: 1.30rem;
+  font-weight: 500;
+  border-radius: 0.7rem;
+  margin-bottom: 2rem;
+}
+
+.closing {
+  background: rgba(15, 255, 190, 0.1);
+  border: 1px solid rgba(15, 255, 190, 0.2);
+  padding: 2rem;
+  font-size: 1.30rem;
+  font-weight: 500;
+  border-radius: 0.7rem;
+  margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-section {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .main-content h2 {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .features, .bonuses, .resources {
+    grid-template-columns: 1fr;
+  }
+
+  .special-price {
+    font-size: 2rem;
+  }
+
+  .start-button {
+    width: 100%;
+  }
+} 
